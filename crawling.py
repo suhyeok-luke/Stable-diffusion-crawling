@@ -47,7 +47,7 @@ def main(prompt):
         res = request.urlopen(url).read()
         output[i] = Image.open(io.BytesIO(res))
 
-        output[i].save("./Images/output" + str(i+1) + ".jpg", 'JPEG')
+        output[i].save("./static/images/output" + str(i+1) + ".jpg", 'JPEG')
 
 
 
