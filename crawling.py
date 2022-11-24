@@ -5,13 +5,14 @@ from selenium.webdriver.common.keys import Keys
 import io
 from urllib import request
 from PIL import Image
+from webdriver_manager.chrome import ChromeDriverManager
 
 def main(prompt):
     options = webdriver.ChromeOptions()
     options.add_argument('--headless')        # Head-less 설정
     options.add_argument('--no-sandbox')
     options.add_argument('--disable-dev-shm-usage')
-    driver = webdriver.Chrome(options=options)
+    driver = webdriver.Chrome(ChromeDriverManager().install(), options=options)
 
     url = 'https://stabilityai-stable-diffusion-1.hf.space/?__theme=light/'
     driver.get(url)
