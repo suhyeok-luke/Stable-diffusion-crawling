@@ -32,8 +32,11 @@ def main(prompt):
     # prompt box
 
     preprocess_prompt = bart_large_cnn.main(prompt)
-    #print(preprocess_prompt)
-    elem.send_keys(preprocess_prompt)
+    prompt_chunk = [preprocess_prompt[i:i+64] for i in range(0, len(preprocess_prompt), 64)]
+
+    for chunk in prompt_chunk:
+        elem.send_keys(chunk)
+    #elem.send_keys(preprocess_prompt)
     shadow_root1.find_element(By.ID, "component-6").click()
     # prompt box에 prompt 넣고 button click
 

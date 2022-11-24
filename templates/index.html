@@ -9,9 +9,14 @@
     <script>
         $(document).ready(function () {
             $('#loading').hide();
+            var timer;
 
             $('#form').submit(function () {
                 $('#loading').show();
+                timer = setInterval(function(){
+                    var timer_sec = Number($('#time').text());
+                    $('#time').text((timer_sec+0.1).toFixed(1));
+                }, 100);
                 return true;
             });
         });
@@ -30,6 +35,7 @@
     <br>
     <div id = "loading" align="center">
         <img src="./static/images/loading.gif" width="100px" height="100px">
+        <div id="time">0.0</div>
     </div>
  
 </body>
