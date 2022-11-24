@@ -6,6 +6,7 @@ import io
 from urllib import request
 from PIL import Image
 from webdriver_manager.chrome import ChromeDriverManager
+import bart_large_cnn
 
 def main(prompt):
     options = webdriver.ChromeOptions()
@@ -30,8 +31,9 @@ def main(prompt):
     elem = shadow_root1.find_element(By.CSS_SELECTOR, "[data-testid='textbox']")
     # prompt box
 
-    #prompt='Korean boy band is dancing in front of Eiffel Tower'
-    elem.send_keys(prompt)
+    preprocess_prompt = bart_large_cnn.main(prompt)
+    #print(preprocess_prompt)
+    elem.send_keys(preprocess_prompt)
     shadow_root1.find_element(By.ID, "component-6").click()
     # prompt box에 prompt 넣고 button click
 
