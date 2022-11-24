@@ -13,7 +13,7 @@ def main(prompt):
     options.add_argument('--disable-dev-shm-usage')
     driver = webdriver.Chrome(options=options)
 
-    url = 'https://stabilityai-stable-diffusion.hf.space/?__theme=light'
+    url = 'https://stabilityai-stable-diffusion-1.hf.space/?__theme=light/'
     driver.get(url)
     # document in stable diffusion
 
@@ -36,7 +36,7 @@ def main(prompt):
 
     imgs = shadow_root1.find_elements(By.CSS_SELECTOR, "[alt]")
 
-    while not len(imgs) > 1:
+    while not len(imgs) > 4:
         imgs = shadow_root1.find_elements(By.CSS_SELECTOR, "[alt]")
         # 사진 뜰 때까지 태그 검색
 

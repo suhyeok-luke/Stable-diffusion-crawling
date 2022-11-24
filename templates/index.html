@@ -5,18 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Flask image get</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#loading').hide();
+
+            $('#form').submit(function () {
+                $('#loading').show();
+                return true;
+            });
+        });
+    </script>
 </head>
 <body>    
     <br>
     <h1 align="center">Crawl the Image</h1>
     <br>
-    <form method="POST" action="/crawl">
+    <form method="POST" action="/crawl" id="form">
         <div align="center">
             <h2 align="center">Prompt</h2>
             <input type="text" id="prompt" name="prompt" >
         </div>
     </form>
     <br>
+    <div id = "loading" align="center">
+        <img src="./static/images/loading.gif" width="100px" height="100px">
+    </div>
  
 </body>
 </html>
