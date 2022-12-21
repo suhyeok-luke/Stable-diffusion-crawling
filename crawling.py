@@ -32,6 +32,7 @@ def main(prompt):
     # prompt box
 
     preprocess_prompt = bart_large_cnn.main(prompt)
+    print(preprocess_prompt)
     prompt_chunk = [preprocess_prompt[i:i+64] for i in range(0, len(preprocess_prompt), 64)]
 
     for chunk in prompt_chunk:
